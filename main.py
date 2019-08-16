@@ -1,16 +1,16 @@
 import random
 
-groups = 4
+groups = 5
 rows = 5
 cols = 5
 total = rows*cols
-each = groups/4
+each = total/groups
 
 
 avail_ = []
 for x in range(cols):
     for y in range(rows):
-        avail_.append([x,y])
+        avail_.append([x+1,y+1])
 
 
 # to store indexes that have already been generated
@@ -35,5 +35,18 @@ while len(c) < total:
         generated.append(avail_[r])
 
 g = 1
-for item in generated:
+# is a counter that gets reset every time a group is filled
+n = 0
+t = 0
+while g <= groups:
+    print(g)
+    temp = []
+    while n < each:
+        temp.append(generated[t])
+        n += 1
+        t += 1
+    n = 0
+    g += 1
+    print(temp)
+
 
